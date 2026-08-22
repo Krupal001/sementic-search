@@ -18,6 +18,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter =- 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +43,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _decrementCounter,
+            tooltip: 'Decrement',
+            heroTag: 'decrement',
+            child: const Icon(Icons.remove),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: _incrementCounter,
+            tooltip: 'Increment',
+            heroTag: 'increment',
+            child: const Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
