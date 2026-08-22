@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _decrementCounter() {
     setState(() {
-      _counter =- 1;
+      _counter -= 1;
     });
   }
 
